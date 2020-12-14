@@ -72,7 +72,7 @@ function initApp(){
             tbodyRef.innerHTML = ""
             //5. Reset header to default text
             h3.innerHTML = h3Text
-            
+
         } //If request finished & response ready -> ready state = DONE
         else if (this.readyState == XMLHttpRequest.DONE) {
             //If server returns "200" status code: we got the file
@@ -85,17 +85,52 @@ function initApp(){
         
                     if (data.section.title) { //Check title exists
                         //6. Change h3 header text to title from JSON
-                        
+                        h3.innerHTML = data.section.title
                     }
 
                     //7. In rows variable, store rows data in table format
                     //Note: Requires concatenating table HTML tags to the JSON data to create each row & cell.
                     // Slow loop: .forEach - do not use
                     // Fastest loop: for(...)
+
+                    var table = document.getElementById(table);
+
+                    for (
+
+                        var i = 0;
+                        i < data.section.signing.length;
+                        i++
+                    )
+                    {
+                        var tr = tbodyRef.insertRow(-1);
+                        var newCell = tr.insertCell();
+                        var newTxt = document.createTextNode(data.section.signing[i].author.title + data.section.signing[i].author.name);
+                        newCell.appendChild(newTxt);
+
+                        for (
+
+                            var j = 0;
+                                j < 1;
+                                j++)
+                                {
+                                    var tCell = tr.insertCell();
+                                    tCell.innerHTML = data.section.signing[i].book.title;
+
+                                    var tCell = tr.insertCell();
+                                    tCell.innerHTML = data.section.signing[i].book.price;
+
+                                    newCell.appendChild(newTxt)
+                                }
+                            }
+                        
+
+
+                    }
                     
                } // This ends the "if (data.section)".
                else {
                    //8. (else) If not able to parse data -> show "Error: Incorrect input received from the server!" error message.
+                   alert("Error: Incorrect input received from the server!")
                    
                }
             } // This ends the "if (this.status == 200)"
