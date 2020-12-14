@@ -137,12 +137,14 @@ function initApp(){
             //9. (else) If server returns 404 or 500 or 30X status code: means we didn't get the file. then display error message "Error: Cannot connect to the server!"
             // This is equivalent to both error & timeout events.
             else { 
+                alert("Error: Cannot connect to the server!")
                 
             }
             //10. Display rows data to the table
             
             //11. Change button text to concatenate "Re-" to the existing text to display "Re-Load Data". Similar to Ex 9.1
             
+            btnSubmit.textContent = "Re-Load Data"
         } // This ends the else if (this.readyState == XMLHttpRequest.DONE) 
     }; // This ends the onreadystatechange event handler
 
