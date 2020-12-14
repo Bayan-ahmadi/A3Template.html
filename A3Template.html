@@ -23,8 +23,8 @@
     
 </head>
 <body>
-<h3>Book Signing Event</h3>
-<table class="pure-table pure-table-bordered">
+<h3 id= "h3">Book Signing Event</h3>
+<table id= "table" class="pure-table pure-table-bordered">
     <thead>
         <tr>
             <th>Author</th>
@@ -33,7 +33,7 @@
         </tr>
     </thead>
 
-    <tbody>
+    <tbody id = "tbody">
     </tbody>
 </table>
     
@@ -47,6 +47,9 @@ function initApp(){
     var btnSubmitText = btnSubmit.textContent;
 
     //1. Cache tbody, h3 & h3 text selectors: See Ex 9.1
+
+    var h3 = document.getElementById("h3")
+    var h3Text = h3.innerHTML
 
 
     var url = "http://babanski.com/files/ajax/book_signing_event.json";
